@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAL - Home & Kitchen Appliances</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #008080;
+            --accent: #ff6b00;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #334155;
+        }
+
+        /* TOP HEADER */
+        .header-top {
+            background: linear-gradient(135deg, #0d5c63 0%, #008080 100%);
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .brand-logo {
+            font-size: 50px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+
+        .brand-logo span {
+            color: var(--accent);
+        }
+
+        .brand-tagline {
+            color: #e0f2fe;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -5px;
+            font-weight: 600;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 14px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        /* PRODUCTS SECTION */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #f8fafc;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .btn-inquire {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-inquire:hover {
+            background: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-box h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-box p, .footer-box li {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            list-style: none;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER -->
+    <div class="header-top">
+        <div class="brand-logo">SE<span>AL</span></div>
+        <div class="brand-tagline">Home Goods | Geysers | Essentials</div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Premium Home & Kitchen Appliances</h1>
+        <p>Make your life comfortable with SEAL's top-quality products.</p>
+    </section>
+
+    <!-- MAIN PRODUCTS SECTION -->
+    <div class="container" id="products">
+        <h2 class="section-heading">Our Featured Appliances</h2>
+        
+        <div class="product-grid">
+            
+            <!-- 1. Built-in Glass Hob -->
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/R.72151235df727fe1701ce9a7b77d3056?rik=cSSsK9dNQ%2bT82Q&riu=http%3a%2f%2fcareappliances.pk%2fcdn%2fshop%2fcollections%2fBlack_Built_In_Hob.png%3fv%3d1738962182&ehk=KG%2bYq9gXqC1gk4mhwN8lGMg1pxoVTLv7REc0kywSrpI%3d&risl=&pid=ImgRaw&r=0-img">
+                <div class="product-info">
+                    <h3 class="product-title">Built-In Glass Hob</h3>
+                    <p class="product-desc">Modern glass-top auto-ignition burners for stylish kitchens.</p>
+                    <button class="btn-inquire" onclick="orderNow('Built-In Glass Hob')">Order Now</button>
+                </div>
+            </div>
+
+            <!-- 2. Cooking Range -->
+            <div class="product-card">
+                <img src="https://hakkabros.com/cdn/shop/files/image-1-0f675490-2142-4d68-b5ff-e880a0e23dbf-_1.jpg?v=1695278189-img">
+                <div class="product-info">
+                    <h3 class="product-title">Heavy Duty Cooking Range</h3>
+                    <p class="product-desc">High-performance gas burners with spacious baking oven.</p>
+                    <button class="btn-inquire" onclick="orderNow('Heavy Duty Cooking Range')">Order Now</button>
+                </div>
+            </div>
+
+            <!-- 3. Water Geyser -->
+            <div class="product-card">
+                <img src="https://www.bing.com/th/id/OIP.JNg3KhyRxUcFiYvSlq00ugHaEK?w=193&h=135&c=8&rs=1&qlt=90&o=6&pid=ImgAns&rm=2-img">
+                <div class="product-info">
+                    <h3 class="product-title">Instant & Fast Geyser</h3>
+                    <p class="product-desc">Energy-efficient automatic heating for instant hot water.</p>
+                    <button class="btn-inquire" onclick="orderNow('Instant & Fast Geyser')">Order Now</button>
+                </div>
+            </div>
+
+            <!-- 4. Kitchen Hood -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1714358013380-b75b16127007?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D-img">
+                <div class="product-info">
+                    <h3 class="product-title">Exhaust Kitchen Hood</h3>
+                    <p class="product-desc">Powerful suction speed to keep your kitchen smoke-free.</p>
+                    <button class="btn-inquire" onclick="orderNow('Exhaust Kitchen Hood')">Order Now</button>
+                </div>
+            </div>
+
+            <!-- 5. Juicer & Hand Blender -->
+            <div class="product-card">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.y4GyED7wEerMlbfBGSwmtgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3-img">
+                <div class="product-info">
+                    <h3 class="product-title">Juicer & Hand Blender</h3>
+                    <p class="product-desc">Multi-functional blender & juicer for everyday kitchen needs.</p>
+                    <button class="btn-inquire" onclick="orderNow('Juicer & Hand Blender')">Order Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer id="contact">
+        <div class="footer-content">
+            
+            <div class="footer-box">
+                <h3>SEAL Online Sales</h3>
+                <p>Your ultimate partner for reliable home, kitchen, and geyser appliances. Quality guaranteed.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home" style="color:#94a3b8; text-decoration:none;">Home</a></li>
+                    <li><a href="#products" style="color:#94a3b8; text-decoration:none;">Appliances</a></li>
+                    <li><a href="#" style="color:#94a3b8; text-decoration:none;">Privacy Policy</a></li>
+                    <li><a href="#" style="color:#94a3b8; text-decoration:none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box contact-info">
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-phone-alt"></i> +92 3132957360</p>
+                <p><i class="fas fa-envelope"></i> 0nlinesales@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Main Market, Karachi, Pakistan</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 SEAL Online Sales. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function orderNow(productName) {
+            alert('Thank you for choosing SEAL! You selected: ' + productName + '. Our team will contact you soon.');
+        }
+    </script>
+</body>
+</html>
